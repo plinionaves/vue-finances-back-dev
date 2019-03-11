@@ -3,4 +3,4 @@ datamodel: datamodel.prisma
 
 generate:
   - generator: javascript-client
-    output: ./generated/prisma-client
+    output: ./../src/generated/prisma-client
