@@ -1,4 +1,37 @@
 type User {
   id: ID! @unique
   name: String!
+  email: String! @unique
+  password: String!
+}
+
+type Account {
+  id: ID! @unique
+  user: User
+  description: String!
+}
+
+enum Operation {
+  DEBIT
+  CREDIT
+}
+
+type Category {
+  id: ID! @unique
+  user: User
+  description: String!
+  operation: Operation!
+}
+
+type Record {
+  id: ID! @unique
+  user: User!
+  account: Account!
+  category: Category!
+  amount: Float!
+  type: Operation!
+  date: DateTime!
+  description: String!
+  tags: String
+  note: String
 }
