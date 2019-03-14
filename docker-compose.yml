@@ -8,6 +8,7 @@ services:
       - "4000:4000"
     environment:
       PRISMA_ENDPOINT: http://prisma:4466
+      JWT_SECRET: ${JWT_SECRET}
     command: npm run dev
     volumes:
       - .:/usr/app
