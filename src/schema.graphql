@@ -4,6 +4,10 @@ type Query {
   accounts: [ Account! ]!
   categories(operation: Operation): [ Category! ]!
   records(
+    """
+      Month and Year, format "MM-YYYY" e.g.: 06-2019
+    """
+    month: String,
     type: Operation,
     accountsIds: [ ID! ],
     categoriesIds: [ ID! ]
