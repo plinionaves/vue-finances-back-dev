@@ -5,6 +5,7 @@ type Query {
 
 type Mutation {
   createAccount(description: String!): Account!
+  createCategory(description: String!, operation: Operation!): Category!
   login(email: String!, password: String!): AuthPayload
   signup(email: String!, password: String!, name: String!): AuthPayload
 }
@@ -24,4 +25,16 @@ type Account {
   id: ID!
   user: User
   description: String!
+}
+
+enum Operation {
+  DEBIT
+  CREDIT
+}
+
+type Category {
+  id: ID!
+  user: User
+  description: String!
+  operation: Operation!
 }
