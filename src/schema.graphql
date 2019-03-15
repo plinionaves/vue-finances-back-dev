@@ -1,5 +1,6 @@
 type Query {
   accounts: [ Account! ]!
+  categories(operation: Operation): [ Category! ]!
   user: User
 }
 
