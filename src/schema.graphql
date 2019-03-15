@@ -3,6 +3,11 @@ scalar Date
 type Query {
   accounts: [ Account! ]!
   categories(operation: Operation): [ Category! ]!
+  records(
+    type: Operation,
+    accountsIds: [ ID! ],
+    categoriesIds: [ ID! ]
+  ): [ Record! ]!
   user: User
 }
 
