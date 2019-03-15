@@ -1,4 +1,5 @@
 type Query {
+  accounts: [ Account! ]!
   user: User
 }
 
