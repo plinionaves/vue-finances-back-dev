@@ -2,10 +2,8 @@ const { GraphQLServer } = require('graphql-yoga')
 const Binding = require('prisma-binding')
 const { prisma } = require('./generated/prisma-client')
 
+const { endpoint, origin, playground, secret } = require('./config')
 const resolvers = require('./resolvers')
-
-const env = process.env
-const endpoint = `${env.PRISMA_ENDPOINT}/${env.PRISMA_SERVICE}/${env.PRISMA_STAGE}`
 
 const server = new GraphQLServer({
   typeDefs: `${__dirname}/schema.graphql`,
@@ -15,10 +13,13 @@ const server = new GraphQLServer({
     db: new Binding.Prisma({
       typeDefs: `${__dirname}/generated/graphql-schema/prisma.graphql`,
       endpoint,
-      secret: env.PRISMA_MANAGEMENT_API_SECRET
+      secret
     }),
     prisma
   })
 })
 
-server.start().then(() => console.log('Server running on http://localhost:4000...'))
+server.start({
+  cors: { origin },
+  playground
+}).then(() => console.log('Server running on http://localhost:4000...'))
