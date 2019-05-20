@@ -1,5 +1,6 @@
 endpoint: ${env:PRISMA_ENDPOINT}/${env:PRISMA_SERVICE}/${env:PRISMA_STAGE}
 datamodel: datamodel.prisma
+secret: ${env:PRISMA_MANAGEMENT_API_SECRET}
 
 generate:
   - generator: javascript-client

@@ -11,6 +11,7 @@ services:
       JWT_SECRET: ${JWT_SECRET}
       PRISMA_SERVICE: ${PRISMA_SERVICE}
       PRISMA_STAGE: ${PRISMA_STAGE}
+      PRISMA_MANAGEMENT_API_SECRET:
     command: npm run dev
     volumes:
       - .:/usr/app
@@ -23,6 +24,7 @@ services:
     environment:
       PRISMA_CONFIG: |
         port: 4466
+        managementApiSecret: ${PRISMA_MANAGEMENT_API_SECRET}
         databases:
           default:
             connector: postgres
