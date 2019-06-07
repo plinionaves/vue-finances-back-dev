@@ -1,4 +1,4 @@
-FROM node:10.15.3-alpine
+FROM node:10.15.3-alpine AS base-stage
 
 WORKDIR /usr/app
 
@@ -8,6 +8,8 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 4000
+FROM base-stage AS prod-stage
 
-CMD ["npm", "run", "dev"]
+RUN npm config set unsafe-perm true
+
+RUN npm i -g pm2
