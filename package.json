@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index",
+    "start": "npx pm2-runtime src/index.js",
     "dev": "npx nodemon --delay 1000ms --ext js,graphql src/index"
   },
   "keywords": [],
@@ -15,6 +15,7 @@
     "graphql-yoga": "1.17.4",
     "jsonwebtoken": "8.5.0",
     "moment": "2.24.0",
+    "pm2": "^3.5.1",
     "prisma-binding": "2.3.8",
     "prisma-client-lib": "1.28.3"
   },
